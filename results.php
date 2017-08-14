@@ -160,28 +160,10 @@ fieldset {
 	if($choice == "Blank"){
 
 
-
-
-
-
-
-
-
 		if (preg_match('/[^01]/', $string)==0){
 
 
-
-
-
-
-
-
 			$e_string=decodeBin($string);
-
-
-
-
-
 
 
 			$error = "Your string was in binary. Here is the decoding:<br>" ;
@@ -189,30 +171,15 @@ fieldset {
 
 		}
 
-
-
 		elseif (preg_match('/^([A-Fa-f0-9]{2})*$/', $string)){
 
-
-
-
 			$e_string =  pack('H*', $string);
-
-
 
 			$error ="Your string was in hex. Here is the decoding:<br>" ;
 
 
 		}
 			
-
-			
-
-
-
-
-
-
 
 		elseif (preg_match('/^(([a-zA-Z0-9\+]{4})|([a-zA-Z0-9\+]{3}=)|([a-zA-Z0-9\+]{2}==)|([a-zA-Z0-9\+]{1}===))*$/', $string)){
 
@@ -225,21 +192,10 @@ fieldset {
 		}
 
 
-
-
-
-			
-
-
-
-
 		elseif(preg_match('/.+/', $string)){
 
 			$error = "Do you want to encode this? Click back to choose type of encoding<br>";
 		}
-
-
-
 
 
 		else{
@@ -247,16 +203,10 @@ fieldset {
 			echo "Do you want to encodFAILREoose type of encoding<br>";
 		}
 
-
-
-
 		$e_string = htmlentities($e_string);
 
 
 	}
-
-
-
 
 	elseif ($choice!= "Blank"){
 
@@ -266,16 +216,10 @@ fieldset {
 
 		}
 
-
-
-
 		elseif($choice == "EncodeHex"){
 
 			$e_string = array_shift( unpack('H*', $string) );
 		}
-
-
-
 
 		elseif($choice == "Encode10"){
 			$e_string =  unpack('H*', $string);
@@ -290,20 +234,13 @@ fieldset {
 
 			$e_string = $ret;
 
-
 		}
 
-
-
 		elseif ($choice == "Decode64"){
-
-
 
 			if (preg_match('/^(([a-zA-Z0-9\+]{4})|([a-zA-Z0-9\+]{3}=)|([a-zA-Z0-9\+]{2}==)|([a-zA-Z0-9\+]{1}===))*$/', $string)){
 
 				$e_string = base64_decode($string);
-
-
 
 			}
 
@@ -315,13 +252,7 @@ fieldset {
 
 		}
 
-
-
-
 		elseif($choice == "DecodeHex"){
-
-
-
 
 
 			if (preg_match('/^([A-Fa-f0-9]{2})*$/', $string)){
@@ -336,11 +267,7 @@ fieldset {
 		
 					$e_string .= chr(hexdec($string[$i].$string[$i+1]));
 				}
-
-					
-					
-
-					
+				
 			}
 
 			else{
@@ -351,24 +278,13 @@ fieldset {
 
 		}
 
-
-
 		elseif($choice == "Decode10"){
 
-
-
 			if (preg_match('/[^01]/', $string)==0){
-
 
 			$e_string=decodeBin($string);
 		
 		
-		
-		
-
-
-
-
 			}
 
 
@@ -377,19 +293,9 @@ fieldset {
 
 				$error="ERROR: String is not in binary. Please only use 0's and 1's<br>";
 
-
 			}
 
-
-
-
 		}
-
-
-
-
-
-
 
 
 		else{
@@ -399,16 +305,9 @@ fieldset {
 
 		$e_string = htmlentities($e_string);
 
-
-
-
 	}
 	
 	
-	
-	
-	
-
 	function decodeBin($string)
 	{
 
@@ -420,19 +319,10 @@ fieldset {
 		
 		return $e_string;
 
-
-
-
-
-
 	}
 
 
 	?>
-
-
-
-
 
 
 
